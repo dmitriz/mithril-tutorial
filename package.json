@@ -1,0 +1,22 @@
+{
+  "name": "mithril-tutorial",
+  "description": "Bringing Noobs to the framework they so richly deserve.",
+  "homepage": "http://mithril.js.org",
+  "keywords": [
+    "badassery",
+    "sticktoitiveness"
+  ],
+  "author": "Scotty Simpson <portrayme@mac.com>",
+  "contributors": [],
+  "repository": {},
+  "dependencies": {},
+  "main": "script.js",
+  "version": "0.8.0",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-replace": "^0.5.4",
+    "live-server": "^1.2.0"
+  }
+}
