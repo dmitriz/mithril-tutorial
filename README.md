@@ -4,14 +4,14 @@ Brainstorming session material lives here. I believe we can bring new users from
 
 ### Installation
 ```
-npm install
+$> npm install
 ```
 ...and once that's finished
 ```
-gulp
+$> gulp
 ```
 ...then open a new terminal tab, and
 ```
-cd build
-live-server
+$> cd build
+$> live-server
 ```
