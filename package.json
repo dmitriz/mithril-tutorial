@@ -9,14 +9,16 @@
   "author": "Scotty Simpson <portrayme@mac.com>",
   "contributors": [],
   "repository": {},
-  "dependencies": {},
+  "dependencies": {
+    "mithril": "^1.0.1"
+  },
   "main": "script.js",
   "version": "0.8.0",
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-browserify": "^0.5.1",
-    "gulp-replace": "^0.5.4",
+    "gulp-rename": "^1.2.2",
     "live-server": "^1.2.0"
   }
 }

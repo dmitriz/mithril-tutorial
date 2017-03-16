@@ -1,28 +1,22 @@
-var fbApp = firebase.initializeApp({
-	apiKey: "AIzaSyCMl7W3dXcCCBRvMP2-jLhQ7gB7OG04n1k",
-	authDomain: "quizmonkey-a798f.firebaseapp.com",
-	databaseURL: "https://quizmonkey-a798f.firebaseio.com",
-	storageBucket: "quizmonkey-a798f.appspot.com",
-	messagingSenderId: "399897194069"
-})
+var m = require("mithril")
+var Model = require("./model/Model")
+var Layout = require("./components/Layout")
+var Editor = require('./components/Editor')
+var List = require('./components/List')
+var Teachers = require("./components/Teachers")
+var Courses = require("./components/Courses")
 
-var m = require("./mithril")
-var G = require('./components/G')
-var Auth = require('./components/Auth')
-var App = require('./components/App')
-
-// if authenticated, show the app, otherwise show the auth screen
-
-var Fork = {
-	view: function () {
-		// return m(G.user ? App : Auth)
-		return m(App)
+m.route(document.body, "/teachers", {
+	"/teachers": {
+		onmatch: Model.clearCurrent,
+		render: function () {
+			return m(Layout, m(Editor, m(List, {list: Model.teachers}), m(Teachers)))
+		}
+	},
+	"/courses": {
+		onmatch: Model.clearCurrent,
+		render: function () {
+			return m(Layout, m(Editor, m(List, {list: Model.courses}), m(Courses)))
+		}
 	}
-}
-// TODO: func
-firebase.auth().onAuthStateChanged(function(user) {
-	G.user = user
-	m.mount(document.body, Fork)
 })
-
-

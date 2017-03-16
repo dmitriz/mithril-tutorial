@@ -19,7 +19,19 @@ gulp.task('html', function () {
 		.pipe(gulp.dest('build/'))
 })
 
-gulp.task('default', ['scripts', 'html'], function() {
-	gulp.watch('src/*.js', 'scripts')
-	gulp.watch('src/index.html', 'html')
+gulp.task('json', function () {
+	gulp.src('src/model/data.json')
+		.pipe(gulp.dest('build/'))
+})
+
+gulp.task('css', function () {
+	gulp.src('src/*.css')
+		.pipe(gulp.dest('build/'))
+})
+
+gulp.task('default', ['scripts', 'html', 'json', 'css'], function() {
+	gulp.watch(['src/**/*.js'], ['scripts'])
+	gulp.watch(['src/*.html'], ['html'])
+	gulp.watch(['src/**/*.json'], ['json'])
+	gulp.watch(['src/*.css'], ['css'])
 })
