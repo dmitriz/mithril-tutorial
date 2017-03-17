@@ -1,6 +1,6 @@
 var m = require('mithril')
 var Model = require('../model/Model')
-var SaveButton = require('./SaveButton')
+var FormButtons = require('./FormButtons')
 
 module.exports = {
 	view: function () {
@@ -28,12 +28,12 @@ module.exports = {
 					, Model.teachers.map(function (teacher) {
 						return m('option', {
 							value: teacher.id,
-							text: teacher.firstName + " " + teacher.lastName
+							text: Model.displayName(teacher)
 						})
 					})
 				)
 			)
-			, m(SaveButton)
+			, m(FormButtons)
 		)
 	}
 }

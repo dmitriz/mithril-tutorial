@@ -14,7 +14,7 @@ module.exports = {
 							}
 						}
 					}
-					, object.title || object.firstName + " " + object.lastName
+					, Model.displayName(object)
 				)
 			})
 		)

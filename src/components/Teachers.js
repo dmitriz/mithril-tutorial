@@ -1,6 +1,6 @@
 var m = require('mithril')
 var Model = require('../model/Model')
-var SaveButton = require('./SaveButton')
+var FormButtons = require('./FormButtons')
 
 module.exports = {
 	view: function () {
@@ -28,7 +28,7 @@ module.exports = {
 				)
 			)
 			, m('label'
-				, "Courses currently taught by " + Model.current.firstName + " " + Model.current.lastName + ":"
+				, "Courses currently taught by " + Model.displayName(Model.current) + ":"
 				, Model.courses
 					.filter(function (course) {
 						return course.teacher == Model.current.id
@@ -37,7 +37,7 @@ module.exports = {
 						return m('code', course.title)
 					})
 			)
-			, m(SaveButton)
+			, m(FormButtons)
 		)
 	}
 }

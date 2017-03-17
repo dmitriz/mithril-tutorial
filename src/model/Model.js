@@ -5,17 +5,23 @@ var Model = {
 	courses: [],
 	current: null,
 	copy: null,
+	displayName: function (object) {
+		return object.title || object.firstName + " " + object.lastName
+	},
 	setCurrent: function (object) {
 		Model.current = object
+		Model.copyCurrent()
+	},
+	clearCurrent: function () {
+		Model.current = Model.copy = null
+	},
+	copyCurrent: function () {
 		Model.copy = {}
 		Object.keys(Model.current).forEach(function (key) {
 			if (Model.current.hasOwnProperty(key)) {
 				Model.copy[key] = Model.current[key]
 			}
 		})
-	},
-	clearCurrent: function () {
-		Model.current = Model.copy = null
 	},
 	save: function () {
 		Object.keys(Model.copy).forEach(function (key) {

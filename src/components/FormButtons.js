@@ -14,9 +14,16 @@ function formIsUnchanged () {
 
 module.exports = {
 	view: function () {
-		return m('.right', m('button', {
-			disabled: formIsUnchanged(),
-			onclick: Model.save
-		}, 'Save')) 
+		var unchanged = formIsUnchanged()
+		return m('.right'
+			, m('button', {
+				disabled: unchanged,
+				onclick: Model.copyCurrent
+			}, 'Discard Changes')
+			, m('button', {
+				disabled: unchanged,
+				onclick: Model.save
+			}, 'Save')
+		) 
 	}
 }
