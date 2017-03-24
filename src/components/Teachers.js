@@ -29,13 +29,9 @@ module.exports = {
 			)
 			, m('label'
 				, "Courses currently taught by " + Model.displayName(Model.current) + ":"
-				, Model.courses
-					.filter(function (course) {
-						return course.teacher == Model.current.id
-					})
-					.map(function (course) {
-						return m('code', course.title)
-					})
+				, Model.coursesForCurrent().map(function (course) {
+					return m('code', course.title)
+				})
 			)
 			, m(FormButtons)
 		)
