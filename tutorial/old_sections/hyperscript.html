@@ -1,0 +1,66 @@
+<!-- // TODO: hyperscript anatomy -->
+<section>
+	<div class="single">
+		<div>
+			<h1>Hyperscript</h1>
+			<h3>Introducing <code class="language-javascript"> m(selector, attributes, children) </code></h3>
+			<p>
+				Let's render some actual HTML. This time, we'll use Mithril's <em>hyperscript</em> function <code class="language-javascript">m()</code>,
+				which lets us describe any HTML structure we want using pure JavaScript. The output is a <em>vnode</em>, 
+				which is an object intended to be a part of Mithril's virtual DOM tree.
+			</p>
+			<p>So let's put it into practice! For now, Let's just try an h1, with a simple attributes object and a single text child:</p>
+			<pre><code class="language-javascript">m.render(document.body, m("h1", {title: "I'm big"}, "Hello! You're looking well."))</code></pre>
+			
+		</div>
+	</div>
+	<div class="result"><img src="../tutorial_images/hyperscript.png"></div>
+	<div class="description">
+		<div>
+			<p><code class="language-javascript">m()</code> takes 3 arguments:</p>
+			<ol>
+				<li>
+					<em>selector</em> (required): a CSS query string, such as:
+					<ul>
+						<li><b>"p"</b> — a paragraph tag</li>
+						<li><b>"h2.subhead"</b> — an h2 with class "subhead"</li>
+						<li><b>"div#hero"</b> — a div with id "hero"</li>
+						<li><b>"input[type=password][placeholder=Password]"</b> — you get the idea.</li>
+					</ul>
+					<aside>It's considered good practice to set static attributes right here in the selector.</aside>
+				</li>
+				<li>
+					<em>attributes</em> (optional): an object which contains keys for computed attributes/properties
+					and event handlers for the vnode:
+					<ul>
+						<li>{ onclick: someFunctionWithoutParentheses }</li>
+						<li>{ oninput: function(){ myVar = someValue } }</li>
+						<li>{ title: somethingIsTruthy() ? "Hey, that's true!" : "No, not even." }</li>
+					</ul>
+					This gives us 2 places to set attributes.
+					<p><code class="language-javascript">m("img[alt=foo]")</code></p>
+					<p>has exactly the same result as</p>
+					<p><code class="language-javascript">m("img", {alt: "foo"})</code>.</p> 
+					<aside>It's considered good practice to set dynamic attributes in the attributes object, and leave statics in the selector.</aside>  
+				</li>
+				<li>
+					<em>children</em> (optional): an array or splat of child vnodes. 
+<pre><code class="language-javascript">m("div", [
+	m("p", "foo"), 
+	m("p", "bar")
+])</code></pre>
+...has the same result as...
+<pre><code class="language-javascript">m("div"
+	, m("p", "foo")
+	, m("p", "bar")
+)</code></pre>
+...which is...
+<pre><code class="language-markup">&lt;div&gt;
+	&lt;p&gt;foo&lt;/p&gt; 
+	&lt;p&gt;bar&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+				</li>
+			</ol>
+		</div>
+	</div>
+</section>

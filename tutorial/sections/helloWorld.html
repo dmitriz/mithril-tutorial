@@ -1,0 +1,53 @@
+<section>
+	<div class="description">
+		<h1>Hello, World!</h1>
+		<p>Jumping right in, let's grab Mithril from a CDN.</p>
+		
+<pre><code class="language-markup">&lt;html&gt;
+&lt;body&gt;
+	&lt;script src="//unpkg.com/mithril/mithril.js"&gt;&lt;/script&gt;
+	&lt;script&gt;
+
+	// Your code goes here
+		
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+	</div>
+	<div class="description">
+		<p>And now let's write our first Mithril SPA:</p>
+		
+<pre><code class="language-javascript">var MyComponent = {
+	view: function() { 
+		return m('h1', 'Hello, World!')  
+	}
+}
+	
+m.mount(document.body, MyComponent)
+</code></pre>
+	</div>
+	<figure>
+		<img src="../tutorial_images/helloWorld.png">
+		<figcaption>Let us begin as programmers have for thousands of years.</figcaption>
+	</figure>
+	<div class="description">
+
+		<p>Ok, so what's going on here? Assuming you're not new not JavaScript, this shouldn't look too scary. There are
+			3 Mithril-specific constructs (links are to the official documentation):</p>
+		<ul>
+			<li><a href="http://mithril.js.org/components.html">Components</a></li>
+			<li><a href="http://mithril.js.org/hyperscript.html">Hyperscript</a></li>
+			<li><a href="http://mithril.js.org/mount.html">m.mount()</a></li>
+		</ul>
+		<p>In Mithril, a <em>component</em> is just an object with a <em>view</em> function. The view function must 
+			return a virtual DOM node, called a <em>vnode</em>. So here you can see the object <em>MyComponent</em>, 
+			which has a view function, which returns a call to a method called <em>m()</em>, which is the Mithril 
+			<em>hyperscript</em> utility that creates vnodes.</p>
+		<p><em>m()</em>, also known as <em>hyperscript</em>, is Mithril's templating system. It allows us to express
+		HTML structures using JavaScript syntax. It's very flexible and very powerful.</p>
+		<p><em>m.mount</em> injects a component into an HTML element, and wires it to Mithril's auto-redraw apparatus,
+			which is where quite a bit of the magic happens.</p>
+
+	</div>
+</section>

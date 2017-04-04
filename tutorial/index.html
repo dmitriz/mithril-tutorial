@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mithril.js — Tutorial 1</title>
+	<link rel="stylesheet" href="prism.css">
+	<link rel="stylesheet" href="tutorial.css">
+</head>
+<body>
+<header>Mithril.js — Tutorial 1</header>
+
+<nav>
+	<button id="prev" onclick="setStep(-1)">prev</button>
+	<div>Step <span id="stepNumber"></span> of <span id="stepTotal"></span></div>
+	<button id="next" onclick="setStep(1)">next</button>
+</nav>
+
+<main>
+	
+	<!-- HERE IS WHERE EVERYTHING GOES -->
+	
+</main>
+<footer>
+	<div class="micetype">&copy; Me</div>
+</footer>
+<script src="prism.js"></script>
+<script>
+	var main, currentStep, prevButton, nextButton, stepNumber, stepTotal
+
+	function updateUI() {
+		var totalNumberOfSteps = document.querySelectorAll('section').length
+		prevButton.disabled = currentStep.id == "0"
+		nextButton.disabled = parseInt(currentStep.id) == totalNumberOfSteps - 1
+		stepNumber.textContent = parseInt(currentStep.id) + 1
+		stepTotal.textContent = totalNumberOfSteps
+		window.scrollTo(0,0)
+	}
+		
+	function setStep(n) {
+		var newN = n
+		if (currentStep) {
+			newN += parseInt(currentStep.id)
+			currentStep.classList.remove('current')
+		}
+		currentStep = document.getElementById(newN) 
+		currentStep.classList.add('current')
+		updateUI()
+	}
+
+//	function findText(text, element, array) {
+//		if (!element) {
+//			element = main
+//			array = []
+//		}
+//		
+//		[].forEach.call(element.childNodes, function (child) {
+//			
+//			if (child.innerText && child.innerText.indexOf(text) > -1) {
+//				if (child.tagName == "SECTION") array.push(child)
+//				array = findText(text, child, array)
+//			}
+//		})
+//		
+//		return array
+//	}
+
+	function configureSections() {
+		[].forEach.call(document.querySelectorAll('section'), function (section, idx) {
+			section.id = idx
+		})
+
+		Prism.highlightAll()
+		
+//		setStep(0)
+		setStep(document.querySelectorAll('section').length - 1)
+	}
+	
+	function fetchNextSection(sections) {
+		if (sections.length) {
+			var req = new XMLHttpRequest()
+			req.addEventListener("load", function () {
+				document.querySelector('main').innerHTML += req.responseText
+				fetchNextSection(sections)
+			})
+			req.open("GET", "./sections/" + sections.shift() + ".html")
+			req.send()
+		} else {
+			configureSections()
+		}
+	}
+	
+	function init(){
+		window.removeEventListener("DOMContentLoaded", init)
+		
+		main = document.querySelector('main')
+		prevButton = document.getElementById("prev")
+		nextButton = document.getElementById("next")
+		stepNumber = document.getElementById("stepNumber")
+		stepTotal = document.getElementById("stepTotal")
+		prevButton.disabled = true
+		
+//		var allSections = [
+//			"intro",
+//			"setup",
+//			"helloWorld",
+//			"hyperscript",
+//			"indentation",
+//			"components",
+//			"nodeGulpSetup",
+//			"scaffolding",
+//			"map",
+//			"ternaries",
+//			"refactor1",
+//			"2WayBinding"
+//		]
+		
+		var allSections = [
+			"helloWorld"
+		]
+		
+		fetchNextSection(allSections)
+	}
+
+	window.addEventListener("DOMContentLoaded", init)
+	window.addEventListener("keydown", function (e) {
+		switch (e.which) {
+			case 37:
+				prevButton.click()
+				break
+			
+			case 39:
+				nextButton.click()
+		}
+	})
+</script>
+</body>
+</html>

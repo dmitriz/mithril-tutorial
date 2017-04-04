@@ -1,0 +1,65 @@
+<!-- // TODO: keys -->
+<section>
+	<div class="description">
+		<div>
+			<h1>Array.map()</h1>
+			<p>Virtually every SPA will feature at least one list of items. Templating engines exist to give us a
+				structured way to present these repetetive objects.</p>
+			<p>One of the most elegant — and powerful — features of Mithril is its steadfast reliance on plain
+				JavaScript. Enter <i>Array.map()</i>.</p>
+			<p>Let's bring in our array of teachers, then use <i>Array.map()</i> to transform the items into vnodes, 
+				presented in an unordered list. Update <i>index.js</i>:</p>
+		</div>
+	</div>
+	<div class="code">
+		<h3>src/index.js</h3>
+		<pre><code class="language-javascript">var m = require("mithril")
+	
+var Teachers = [
+	{ "id": 1, "firstName": "Peter", "lastName": "Mackenzie" },
+    { "id": 2, "firstName": "Cindy", "lastName": "Zhang" },
+    { "id": 3, "firstName": "Ted", "lastName": "Smith" },
+    { "id": 4, "firstName": "Susan", "lastName": "Fernbrook" },
+    { "id": 5, "firstName": "Emily", "lastName": "Kim" },
+    { "id": 6, "firstName": "Peter", "lastName": "Zhang" },
+    { "id": 7, "firstName": "Cindy", "lastName": "Smith" },
+    { "id": 8, "firstName": "Ted", "lastName": "Fernbrook" },
+    { "id": 9, "firstName": "Susan", "lastName": "Kim" },
+    { "id": 10, "firstName": "Emily", "lastName": "Mackenzie" }
+]
+
+var App = {
+	view: function() {
+		return m("ul",
+			Teachers.map(function(teacher){
+				return m("li", teacher.firstName + " " + teacher.lastName)
+			})
+		)
+	}
+}
+	
+m.mount(document.body, App)
+</code></pre>
+	</div>
+	<div class="result"><img src="../tutorial_images/map.png"></div>
+	<div class="description">
+		<div>
+			<p>
+				Simply by harnessing JavaScript's native APIs, Mithril.js is giving us incredible power and flexibility,
+				with essentially no learning curve (assuming you're not new to JavaScript as well as to Mithril).
+			</p>
+			<p>
+				Let's say we only want to list the teachers whose first names contain the letter "e", case-insensitively.
+				No funky Mithril magic is required; we'll use plain JavaScript and return the appropriate vnodes:
+			</p>
+
+<pre><code class="language-javascript">Teachers.filter(function(teacher){
+		return teacher.firstName.match(/e/i)
+	})
+	.map(function(teacher){
+		return m("li", teacher.firstName + " " + teacher.lastName)
+	})
+</code></pre>
+		</div>
+	</div>
+</section>

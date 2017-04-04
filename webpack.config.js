@@ -16,6 +16,6 @@ module.exports = {
 	devtool: 'source-map',
 	watch: true,
 	plugins: [
-		new HtmlWebpackPlugin()
+		new HtmlWebpackPlugin({title: 'Teachers and Courses'})
 	]
 }
