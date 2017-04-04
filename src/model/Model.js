@@ -37,7 +37,7 @@ var Model = {
 	},
 	getData: function () {
 		return m.request({
-			url: './src/model/data.json'
+			url: '../build/data.json'
 		})
 		.then(function (data) {
 			Model.teachers = data.teachers
