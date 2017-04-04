@@ -5,6 +5,7 @@ var Editor = require('./components/Editor')
 var List = require('./components/List')
 var Teachers = require("./components/Teachers")
 var Courses = require("./components/Courses")
+require('./styles.css')
 
 m.route(document.body, "/teachers", {
 	"/teachers": {

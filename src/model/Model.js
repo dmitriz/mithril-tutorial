@@ -25,7 +25,7 @@ var Model = {
 	},
 	coursesForCurrent: function () {
 		return Model.courses.filter(function (course) {
-			return course.teacher == Model.current.id
+			return course.teacher === Model.current.id
 		})
 	},
 	save: function () {
@@ -37,7 +37,7 @@ var Model = {
 	},
 	getData: function () {
 		return m.request({
-			url: './data.json'
+			url: './src/model/data.json'
 		})
 		.then(function (data) {
 			Model.teachers = data.teachers

@@ -11,10 +11,6 @@ $> npm install
 ```
 ...and once that's finished
 ```
-$> gulp
+$> npm run start
 ```
-...then open a new terminal tab, and
-```
-$> cd build
-$> live-server
-```
+...then open a browser and visit [http://localhost:8000]()
