@@ -25,7 +25,7 @@ var Model = {
 	},
 	coursesForCurrent: function () {
 		return Model.courses.filter(function (course) {
-			return course.teacher === Model.current.id
+			return parseInt(course.teacher) === parseInt(Model.current.id)
 		})
 	},
 	save: function () {
