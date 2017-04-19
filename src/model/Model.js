@@ -9,8 +9,12 @@ var Model = {
 		return object.title || object.firstName + " " + object.lastName
 	},
 	setCurrent: function (object) {
-		Model.current = object
-		Model.copyCurrent()
+		if (object) {
+			Model.current = object
+			Model.copyCurrent()
+		} else {
+			Model.clearCurrent()
+		}
 	},
 	clearCurrent: function () {
 		Model.current = Model.copy = null
@@ -25,7 +29,12 @@ var Model = {
 	},
 	coursesForCurrent: function () {
 		return Model.courses.filter(function (course) {
-			return parseInt(course.teacher) === parseInt(Model.current.id)
+			return course.teacher === Model.current.id
+		})
+	},
+	objectForId: function (attrs) {
+		return Model[attrs.list].find(function (item) {
+			return item.id === attrs.id
 		})
 	},
 	save: function () {
@@ -39,15 +48,7 @@ var Model = {
 		return m.request({
 			url: '../data/data.json'
 		})
-		.then(function (data) {
-			Model.teachers = data.teachers
-			Model.courses = data.courses
-		})
 	}
 }
 
 module.exports = Model
-
-
-
-
