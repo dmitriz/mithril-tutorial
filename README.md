@@ -13,4 +13,4 @@ $> npm install
 ```
 $> npm run start
 ```
-...then open a browser and visit [http://localhost:8000]()
+...then open a browser and visit [http://localhost:8080]()
