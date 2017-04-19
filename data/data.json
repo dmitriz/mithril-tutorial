@@ -1,106 +1,106 @@
 {
   "teachers": [
     {
-      "id": 1,
+      "id": "1",
       "firstName": "Peter",
       "lastName": "Mackenzie"
     },
     {
-      "id": 2,
+      "id": "2",
       "firstName": "Cindy",
       "lastName": "Zhang"
     },
     {
-      "id": 3,
+      "id": "3",
       "firstName": "Ted",
       "lastName": "Smith"
     },
     {
-      "id": 4,
+      "id": "4",
       "firstName": "Susan",
       "lastName": "Fernbrook"
     },
     {
-      "id": 5,
+      "id": "5",
       "firstName": "Emily",
       "lastName": "Kim"
     },
     {
-      "id": 6,
+      "id": "6",
       "firstName": "Peter",
       "lastName": "Zhang"
     },
     {
-      "id": 7,
+      "id": "7",
       "firstName": "Cindy",
       "lastName": "Smith"
     },
     {
-      "id": 8,
+      "id": "8",
       "firstName": "Ted",
       "lastName": "Fernbrook"
     },
     {
-      "id": 9,
+      "id": "9",
       "firstName": "Susan",
       "lastName": "Kim"
     },
     {
-      "id": 10,
+      "id": "10",
       "firstName": "Emily",
       "lastName": "Mackenzie"
     }
   ],
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Word Processing 080",
-      "teacher": 10
+      "teacher": "10"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "CorelDraw for Professionals",
-      "teacher": 9
+      "teacher": "9"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Advanced Topics in Couponing",
-      "teacher": 8
+      "teacher": "8"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "English Lit, the Marvel Way!!!",
-      "teacher": 7
+      "teacher": "7"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Home Economics",
-      "teacher": 6
+      "teacher": "6"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "P.E.",
-      "teacher": 5
+      "teacher": "5"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Salmon.",
-      "teacher": 4
+      "teacher": "4"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Anatomy & Podiatry",
-      "teacher": 3
+      "teacher": "3"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Walking With Purpose",
-      "teacher": 2
+      "teacher": "2"
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Shopping Without Borders",
-      "teacher": 1
+      "teacher": "1"
     }
   ] 
 }
