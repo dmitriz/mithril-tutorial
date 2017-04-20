@@ -3,6 +3,8 @@ var Model = require("./model/Model")
 var Layout = require("./components/Layout")
 var List = require('./components/List')
 
+// this object enables the renderFn to choose both the list and the Form Component from a single passed-in string
+// e.g. Model['teachers'] and formComponents['teachers']
 var formComponents = {
 	teachers: require("./components/Teachers"),
 	courses: require("./components/Courses")
@@ -23,13 +25,9 @@ var renderFn = function (vnode) {
 }
 
 // first, mount the loader
-m.mount(document.body, {
-	view: function() {
-		return m('.loader', 'loading...')
-	}
-})
+m.mount(document.body, { view: function() {	return m('.loader', 'loading...') }})
 
-// simulate latency before data fetching and router instantiation 
+// simulate latency before fetching data and instantiating the router 
 setTimeout(function () {
 	Model.getData().then(function (data) {
 		Model.teachers = data.teachers
